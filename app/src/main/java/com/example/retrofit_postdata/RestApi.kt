@@ -6,7 +6,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface RestApi {
-    @Headers("Content-Type: application/json")
+    @Headers("/v1/login/credentials")
     @POST("users")
     fun addUser(@Body userData: UserInfo): Call<UserInfo>
 }
