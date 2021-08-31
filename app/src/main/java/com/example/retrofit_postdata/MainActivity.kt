@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         val retrofitAPI: RestApi = retrofit.create(RestApi::class.java)
 
         // passing data from our text fields to our modal class.
-        val modal = UserInfo(  deviceMac =, deviceId =, deviceModel =, deviceName =, language =, iPAddress =, pushNotificationToken =, cabLatitude =, cabLongitude =, loginType = )
+        val modal = UserInfo(  deviceMac =, deviceModel =, deviceId =, deviceName =, language =, iPAddress =, pushNotificationToken =, cabLatitude =, cabLongitude =, loginType = )
 
         // calling a method to create a post and passing our modal class.
         val call: Call<UserInfo> = retrofitAPI.createPost(modal)
@@ -95,11 +95,11 @@ class MainActivity : AppCompatActivity() {
                 // on below line we are getting our data from modal class and adding it to our string.
                 val responseString = """
                     Response Code : ${response.code()}
-                    timeStamp : ${responseFromAPI.getName()}
-                    name : ${responseFromAPI.getJob()}
-                    type : ${responseFromAPI.getJob()}
-                    status : ${responseFromAPI.getJob()}
-                    token : ${responseFromAPI.getJob()}
+                    timeStamp : ${responseFromAPI.gettimeStamp()}
+                    name : ${responseFromAPI.getname()}
+                    type : ${responseFromAPI.gettype()}
+                    status : ${responseFromAPI.getstatus()}
+                    token : ${responseFromAPI.gettoken()}
                     """.trimIndent()
 
                 // below line we are setting our

@@ -1,0 +1,76 @@
+1.task:-
+
+"https://api.mrmoasilha.com/v1/updatecustomerkyc
+
+  @Part("nationalIdentificationNumber") nationalIdentificationNumber: String,
+            @Part("nationalIdentificationValidity") nationalIdentificationValidity: String,
+            @Part("drivingLicenseNumber") drivingLicenseNumber: String,
+            @Part("drivingLicenseValidity") drivingLicenseValidity: String,
+            @Part drivingLicenseImage: MultipartBody.Part?,
+            @Part nationalIdentificationImage: MultipartBody.Part?
+
+   @Header("Authorization") token: String ): Call<UploadKycResponse?>
+
+response
+
+1:16 PM
+
+
+
+ val timeStamp: String,
+    val tokenStatus: String,
+    val status: String,
+        )
+
+token status 1008 , status 1005
+
+success
+
+
+Task2:-
+-------------------------------------------------
+
+https://api.mrmoasilha.com/v1/login/credentials
+
+Authorization Mobile Number And Password Or Mpin Or Empty
+
+request
+
+"{
+        ""deviceType"": ""Android"",
+        ""deviceId"": ""f6f2d0e2c2fcc9eg"",
+        ""deviceVersion"": ""1.0"",
+        ""language"": ""en"",
+        ""appVersion"": ""1.0"",
+        ""iPAddress"": ""12.23.23"",
+        ""cabLatitude"": 125.25325,
+        ""cabLongitude"": 125.25328,
+        ""pushNotificationToken"": ""NA"",
+        ""deviceMac"": ""NA"",
+        ""deviceModel"": ""SmasungG2"",
+        ""deviceName"": ""125.25.325"",
+        ""buildId"": ""1.0.0"",/1.0.1/1.0.2/1.0.3
+        ""customerType"": ""DRIVER/DELIVERY_BY_SME"",
+    ""loginType"":""LOGINWITHPASSWORD"",
+        ""referalCode"":""NA""
+
+}"
+
+response
+
+11:45 AM
+
+
+
+"{
+    ""timeStamp"": ""2021-08-13 13:07:11"",
+    ""name"": ""Trinadh"",
+    ""type"": ""DRIVER"",
+    ""status"": ""1005"",
+    ""token"": ""aAeDFAWqireJAWR3g7/Sc4Z3ZSgvCouJWy0cD+sFNO4Fx7pGMGM+rVFTAqagd+b8cTaKpU5c0wmYvO1kz9OB5k81EVLmT3WeSF4IOhhyPYMp+wnZlW+xwjBLYtxWWubLft9+69rancN2fTpj7s4YfdVTcNiizF1CTjD1BE3TUgtxVtwqgFSlvU4oLtR5Anslz2q3iMYJ/ywkyQFv4hAYod8unrqBLYsrbql02TRg7zSBUVsN7+VCZTji9mK2ri/HLTDItBtNZcx9pFWiw2DAkyhf96LE+AMfWA8ameHI3JCwfm6MCnKwyeHRM6Cm92hGES2FXb6QoGM+ZtAwe0Mv9ffJxb1N+XIfMInTR4g8akPuu2kU+degJQP2Dg==""
+}"
+
+
+https://www.geeksforgeeks.org/how-to-post-data-to-api-using-retrofit-in-android/
+
+s
