@@ -2,28 +2,18 @@ package com.example.retrofit_postdata
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
-import retrofit2.converter.gson.GsonConverterFactory
-
-import retrofit2.Retrofit
-
-import android.R
-import android.content.DialogInterface
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import android.widget.Toast
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-import android.widget.ProgressBar
-
-import android.widget.TextView
-
-import android.widget.EditText
-
-
-class MainActivity : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
 
     private var mobile: EditText? = null
     private var password: EditText? = null
@@ -32,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main2)
 
         // initializing our views
         mobile  = findViewById(R.id.ed_mobilenumber)
@@ -40,12 +30,11 @@ class MainActivity : AppCompatActivity() {
         PostTOAPI = findViewById(R.id.postdatabtn)
         Response = findViewById(R.id.idTVResponse)
 
-
         // adding on click listener to our button.
         PostTOAPI.setOnClickListener(View.OnClickListener { // validating if the text field is empty or not.
             if (mobile.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
                 Toast.makeText(
-                    this@MainActivity,
+                    this@MainActivity2,
                     "Please enter both the values",
                     Toast.LENGTH_SHORT
                 ).show()
@@ -79,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<UserInfo?> {
             override fun onResponse(call: Call<UserInfo?>, response: Response<UserInfo?>) {
                 // this method is called when we get response from our api.
-                Toast.makeText(this@MainActivity, "Data added to API", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity2, "Data added to API", Toast.LENGTH_SHORT).show()
 
                 // below line is for hiding our progress bar.
 
