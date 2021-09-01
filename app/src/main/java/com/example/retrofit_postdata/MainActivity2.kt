@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.mlkit.vision.text.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,9 +16,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity2 : AppCompatActivity() {
 
-    private var mobile: EditText? = null
-    private var password: EditText? = null
-    private var PostTOAPI: Button? = null
+    private var editTextmobile: EditText? = null
+    private var editTextpassword: EditText? = null
+    private var buttonSubmit: Button? = null
     private var Response: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,14 +26,14 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         // initializing our views
-        mobile  = findViewById(R.id.ed_mobilenumber)
-        password = findViewById(R.id.ed_password)
+        editTextmobile  = findViewById(R.id.ed_mobilenumber)
+        editTextpassword = findViewById(R.id.ed_password)
         PostTOAPI = findViewById(R.id.postdatabtn)
         Response = findViewById(R.id.idTVResponse)
 
         // adding on click listener to our button.
-        PostTOAPI.setOnClickListener(View.OnClickListener { // validating if the text field is empty or not.
-            if (mobile.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
+        PostTOAPI?.setOnClickListener(View.OnClickListener { // validating if the text field is empty or not.
+            if (editTextmobile?.getText().toString().isEmpty() && editTextpassword?.getText().toString().isEmpty()) {
                 Toast.makeText(
                     this@MainActivity2,
                     "Please enter both the values",
@@ -41,13 +42,12 @@ class MainActivity2 : AppCompatActivity() {
                 return@OnClickListener
             }
             // calling a method to post the data and passing our name and job.
-            postData(mobile.getText().toString(), password.getText().toString())
+            postData(editTextmobile?.getText().toString(), editTextpassword?.getText().toString())
         })
     }
 
     private fun postData(mobile: String, password: String) {
 
-        // below line is for displaying our progress bar.
         // on below line we are creating a retrofit
         // builder and passing our base url
         val retrofit = Retrofit.Builder()
@@ -59,9 +59,7 @@ class MainActivity2 : AppCompatActivity() {
         val retrofitAPI: RestApi = retrofit.create(RestApi::class.java)
 
         // passing data from our text fields to our modal class.
-        val modal = UserInfo( val deviceType: String, val deviceModel: Int,val deviceId: Int, val deviceName: String,val language: String, val iPAddress: Int, val pushNotificationToken: String,val cabLatitude: Int,val cabLongitude: Int, val loginType: String )
-
-        data class User(val name: String, val age: Int)
+        //val modal = UserInfo( val deviceType: String, val deviceModel: Int,val deviceId: Int, val deviceName: String,val language: String, val iPAddress: Int, val pushNotificationToken: String,val cabLatitude: Int,val cabLongitude: Int, val loginType: String )
 
         // calling a method to create a post and passing our modal class.
         val call: Call<UserInfo> = retrofitAPI.createPost(modal)
@@ -76,8 +74,8 @@ class MainActivity2 : AppCompatActivity() {
 
                 // on below line we are setting empty text
                 // to our both edit text.
-                mobile!!.setText("")
-                password!!.setText("")
+                editTextmobile.Text("")
+                editTextpassword.Text("")
 
                 // we are getting response from our body
                 // and passing it to our modal class.
